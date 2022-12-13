@@ -5,7 +5,7 @@ module Hubspot
   # {https://developers.hubspot.com/docs/methods/forms/forms_overview}
   #
   class Form
-    FORMS_PATH       = '/forms/v2/forms' # '/contacts/v1/forms'
+    FORMS_PATH       = '/forms/v1/forms' # '/contacts/v1/forms'
     FORM_PATH        = '/forms/v2/forms/:form_guid' # '/contacts/v1/forms/:form_guid'
     FIELDS_PATH      = '/forms/v2/fields/:form_guid' # '/contacts/v1/fields/:form_guid'
     SUBMISSIONS_PATH = '/form-integrations/v1/submissions/forms/:form_guid'
@@ -40,7 +40,7 @@ module Hubspot
     end
 
     def submissions
-      Hubspot::Connection.get_json(SUBMISSIONS_PATH, { form_guid: @guid })
+      Hubspot::Connection.get_json(FORMS_PATH, { form_guid: @guid })
     end
 
     # {https://developers.hubspot.com/docs/methods/forms/get_fields}
